@@ -93,19 +93,19 @@ function generateQuestionsHtml() {
         </div>
         <div class='answers'>
           <div> 
-            <input type='radio' name='answers' id='answer-1' value='store.questions[store.questionNumber].answers[0]'</input>
+            <input type='radio' name='answers' id='answer-1' value='${store.questions[store.questionNumber].answers[0]}'</input>
             <label for='answer-1'>${store.questions[store.questionNumber].answers[0]}</label>
           </div>
           <div> 
-            <input type='radio' name='answers' id='answer-1' value='store.questions[store.questionNumber].answers[1]'</input>
+            <input type='radio' name='answers' id='answer-1' value='${store.questions[store.questionNumber].answers[1]}'</input>
             <label for='answer-1'>${store.questions[store.questionNumber].answers[1]}</label>
           </div>
           <div> 
-            <input type='radio' name='answers' id='answer-1' value='store.questions[store.questionNumber].answers[2]'</input>
+            <input type='radio' name='answers' id='answer-1' value='${store.questions[store.questionNumber].answers[2]}'</input>
             <label for='answer-1'>${store.questions[store.questionNumber].answers[2]}</label>
           </div>
           <div> 
-            <input type='radio' name='answers' id='answer-1' value='store.questions[store.questionNumber].answers[3]'</input>
+            <input type='radio' name='answers' id='answer-1' value='${store.questions[store.questionNumber].answers[3]}'</input>
             <label for='answer-1'>${store.questions[store.questionNumber].answers[3]}</label>
           </div>
         </div>
