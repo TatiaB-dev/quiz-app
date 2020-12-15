@@ -5,24 +5,54 @@ const store = {
   // 5 or more questions are required
   questions: [
     {
-      question: 'What color is broccoli?',
+      question: 'Which of the following is an ACE inhibitor?',
       answers: [
-        'red',
-        'orange',
-        'pink',
-        'green'
+        'Furosemide',
+        'Metformin',
+        'Metoprolol',
+        'Lisinopril'
       ],
-      correctAnswer: 'green'
+      correctAnswer: 'Lisinopril'
     },
     {
-      question: 'What is the current year?',
+      question: 'Which mediciation can cause hypokalemia, and should be taken with potassium?',
       answers: [
-        '1970',
-        '2015',
-        '2019',
-        '2005'
+        'Spironolactone',
+        'Furosemide',
+        'Levetiracetam',
+        'Allopurinol'
       ],
-      correctAnswer: '2019'
+      correctAnswer: 'Furosemide'
+    },
+    {
+      question: 'When is the best time to take Levothyroxine?',
+      answers: [
+        'At bedtime',
+        'First thing in the morning, with breakfast',
+        'First thing in the morning, at least 30 minutes before eating',
+        'It does not matter'
+      ],
+      correctAnswer: 'First thing in the morning, at least 30 minutes before eating'
+    },
+    {
+      question: 'What is not a symptom of Digoxin toxicity?',
+      answers: [
+        'Vomiting',
+        'Hallucinations',
+        'Palpitations',
+        'Hypertension'
+      ],
+      correctAnswer: 'Hypertension'
+    },
+    {
+      question: 'What lab value is often elevated in people who are taking prednisone?',
+      answers: [
+        'Blood glucose',
+        'Potassium',
+        'Red Blood Cell Count',
+        'Erythrocyte Sedimentation Rate (Sed rate)'
+      ],
+      correctAnswer: 'Blood glucose'
     }
   ],
   quizStarted: false,
@@ -96,6 +126,15 @@ function generateResultHtml() {
 
 function generateFinalScreenHtml() {
   console.log('generateFinalScreenHtml ran');
+  return `
+  <section class='center-container'>
+    <div class='container'>
+      <p>You finished the quiz! Here is your final score: </p>
+      <p> Score: ${store.score}/5</p>
+      <button type='button' id='js-restart-btn'>Restart Quiz</button>
+    </div>
+  </section>
+  `
 }
 
 /********** RENDER FUNCTION(S) **********/
@@ -108,7 +147,7 @@ function renderQuiz() {
   if (store.quizStarted === false) {
     $('main').html(generateStartHtml());
     return;
-  } else if (store.questionNumber <= store.questions.length) {
+  } else if (store.questionNumber < store.questions.length) {
     $('main').html(generateQuestionsHtml());
     return;
   } else {
