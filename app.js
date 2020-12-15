@@ -174,6 +174,7 @@ function handleSubmitQuestionClick() {
     event.preventDefault();
 
     let userAnswer = $('input[name=answers]:checked').val();
+    console.log(userAnswer);
 
     if (userAnswer === store.questions[store.questionNumber].correctAnswer) {
       store.score++;
