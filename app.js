@@ -77,10 +77,6 @@ function generateStartHtml() {
   `
 }
 
-function generateQuestionScoreNumHtml() {
-  console.log('generateQuestionScoreNumHtml ran');
-}
-
 function generateQuestionsHtml() {
   console.log('generateQuestionHtml ran');
   return `
@@ -116,13 +112,6 @@ function generateQuestionsHtml() {
     <p class='js-score-counter'>Score ${store.score}/5</p>
     <p class='results'></p>
   </section>
-  `
-}
-
-function generateResultHtml() {
-  console.log('generateResultHtml ran');
-  return `
-    
   `
 }
 
@@ -198,6 +187,15 @@ function handleNextQuestionClick() {
   })
 }
 
+function handleRestartQuizClick() {
+  $('main').on('click', '#js-restart-btn', function() {
+    store.quizStarted = false;
+    store.questionNumber = 0;
+    store.score = 0;
+    renderQuiz();
+  })
+}
+
 /********** Quiz **********/
 
 function handleQuizApp() {
@@ -205,6 +203,7 @@ function handleQuizApp() {
   handleStartQuizClick();
   handleSubmitQuestionClick();
   handleNextQuestionClick();
+  handleRestartQuizClick();
 }
 
 $(handleQuizApp)

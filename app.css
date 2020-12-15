@@ -18,11 +18,11 @@ header h1 {
   width: max-content;
 }
 
-main p {
+section p {
   text-align: center;
 }
 
-main form {
+section form {
   width: max-content;
   margin: 0 auto;
 }
