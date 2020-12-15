@@ -1,8 +1,28 @@
-/* Your styles should be mobile-first and responsive */
+header h1 {
+  text-align: center;
+}
 
-/** 
-  * If you are unclear on how to utilize a mobile-first, responsive technique to write your CSS, here is an example: 
-  *
-  * https://github.com/andreacardybailey/responsive_example/blob/master/styles/responsive-base.css 
-  *
-*/
+.center-container {
+  display: flex;
+}
+
+.container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;    
+  border: 1px solid black;
+  padding: 15px;
+}
+
+.container button {
+  width: max-content;
+}
+
+main p {
+  text-align: center;
+}
+
+main form {
+  width: max-content;
+  margin: 0 auto;
+}
