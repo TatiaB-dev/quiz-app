@@ -37,11 +37,18 @@ const store = {
 
 function generateStartHtml() {
   console.log('generateStartHtml ran');
-  
+  return `
+  <section class='center-container'>
+    <div class='container'>
+      <p>Test your knowledge of nursing-level pharmacology</p>
+      <button>Start Quiz</button>
+    </div>
+  </section>
+  `
 }
 
 function generateQuestionScoreNumHtml() {
-  console.log('generateQuestionScoreNumHtml ran')
+  console.log('generateQuestionScoreNumHtml ran');
 }
 
 function generateQuestionsHtml() {
