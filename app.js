@@ -53,10 +53,45 @@ function generateQuestionScoreNumHtml() {
 
 function generateQuestionsHtml() {
   console.log('generateQuestionHtml ran');
+  return `
+  <section>
+    <p class='js-question-counter'>Question ${store.questionNumber}/5</p>
+    <form id='js-question-form'>
+      <fieldset>
+        <div class='question'>
+          <legend>${store.questions[store.questionNumber].question}</legend>
+        </div>
+        <div class='answers'>
+          <div> 
+            <input type='radio' name='answers' id='answer-1' value='store.questions[store.questionNumber].answers[0]'</input>
+            <label for='answer-1'>${store.questions[store.questionNumber].answers[0]}</label>
+          </div>
+          <div> 
+            <input type='radio' name='answers' id='answer-1' value='store.questions[store.questionNumber].answers[1]'</input>
+            <label for='answer-1'>${store.questions[store.questionNumber].answers[1]}</label>
+          </div>
+          <div> 
+            <input type='radio' name='answers' id='answer-1' value='store.questions[store.questionNumber].answers[2]'</input>
+            <label for='answer-1'>${store.questions[store.questionNumber].answers[2]}</label>
+          </div>
+          <div> 
+            <input type='radio' name='answers' id='answer-1' value='store.questions[store.questionNumber].answers[3]'</input>
+            <label for='answer-1'>${store.questions[store.questionNumber].answers[3]}</label>
+          </div>
+        </div>
+        <button type='submit' id='js-submit-btn'>Submit</button> 
+      </fieldset>
+    </form>
+    <p class='js-score-counter'>Score ${store.score}/5</p>
+  </section>
+  `
 }
 
 function generateResultHtml() {
-  console.log('generateResultHtml ran ran');
+  console.log('generateResultHtml ran');
+  return `
+    <h2>Hello</h2>
+  `
 }
 
 function generateFinalScreenHtml() {
@@ -96,6 +131,17 @@ function handleStartQuizClick() {
 
 function handleSubmitQuestionClick() {
   console.log('handleSubmitQuestionClick ran')
+  $('main').on('submit', '#js-question-form', function(event) {
+    event.preventDefault();
+
+    let userAnswer = $('input[name=answers]:checked').val();
+
+    if (userAnswer === store.questions[store.questionNumber].correctAnswer) {
+      store.score++;
+    }
+    store.questionNumber++;
+    renderQuiz();
+  })
 }
 
 function handleNextQuestionClick() {
