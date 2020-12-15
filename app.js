@@ -37,6 +37,7 @@ const store = {
 
 function generateStartHtml() {
   console.log('generateStartHtml ran');
+  
 }
 
 function generateQuestionScoreNumHtml() {
@@ -61,6 +62,17 @@ function generateFinalScreenHtml() {
 
 function renderQuiz() {
   console.log('renderQuiz ran')
+
+  if (store.quizStarted === false) {
+    $('main').html(generateStartHtml());
+    return;
+  } else if (store.questionsNumber <= store.questions.length) {
+    $('main').html(generateQuestionsHtml());
+    return;
+  } else {
+    $('main').html(generateFinalScreenHtml());
+    return;
+  }
 }
 
 /********** EVENT HANDLER FUNCTIONS **********/
