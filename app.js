@@ -110,6 +110,7 @@ function generateQuestionsHtml() {
           </div>
         </div>
         <button type='submit' id='js-submit-btn'>Submit</button> 
+        <button type='button' id='js-next-btn' style='display: none;'>Next</button>
       </fieldset>
     </form>
     <p class='js-score-counter'>Score ${store.score}/5</p>
@@ -172,8 +173,11 @@ function handleStartQuizClick() {
 function handleSubmitQuestionClick() {
   console.log('handleSubmitQuestionClick ran')
 
+
   $('main').on('submit', '#js-question-form', function(event) {
     event.preventDefault();
+    $('#js-submit-btn').hide();
+    $('#js-next-btn').show();
     let userAnswer = $('input[name=answers]:checked').val();
     console.log(userAnswer);
 
@@ -181,16 +185,17 @@ function handleSubmitQuestionClick() {
       store.score++;
       $('.results').html( $("input:checked").val() + " is correct!");
     } else {
-      $('.results').html( $("input:checked").val() + ` is incorrect, the correct answer is ${store.questions[store.questionNumber].correctAnswer}.`);
+      $('.results').html( $("input:checked").val() + ` is incorrect. The correct answer is: ${store.questions[store.questionNumber].correctAnswer}.`);
     }
     store.questionNumber++;
-  
-    // renderQuiz();
   })
 }
 
 function handleNextQuestionClick() {
   console.log('handleNextQuestionClick ran')
+  $('main').on('click', '#js-next-btn', function() {
+    renderQuiz();
+  })
 }
 
 /********** Quiz **********/
