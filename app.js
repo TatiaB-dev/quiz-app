@@ -113,6 +113,7 @@ function generateQuestionsHtml() {
       </fieldset>
     </form>
     <p class='js-score-counter'>Score ${store.score}/5</p>
+    <p class='results'></p>
   </section>
   `
 }
@@ -120,7 +121,7 @@ function generateQuestionsHtml() {
 function generateResultHtml() {
   console.log('generateResultHtml ran');
   return `
-    <h2>Hello</h2>
+    
   `
 }
 
@@ -170,17 +171,21 @@ function handleStartQuizClick() {
 
 function handleSubmitQuestionClick() {
   console.log('handleSubmitQuestionClick ran')
+
   $('main').on('submit', '#js-question-form', function(event) {
     event.preventDefault();
-
     let userAnswer = $('input[name=answers]:checked').val();
     console.log(userAnswer);
 
     if (userAnswer === store.questions[store.questionNumber].correctAnswer) {
       store.score++;
+      $('.results').html( $("input:checked").val() + " is correct!");
+    } else {
+      $('.results').html( $("input:checked").val() + ` is incorrect, the correct answer is ${store.questions[store.questionNumber].correctAnswer}.`);
     }
     store.questionNumber++;
-    renderQuiz();
+  
+    // renderQuiz();
   })
 }
 
