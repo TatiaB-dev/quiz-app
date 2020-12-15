@@ -41,7 +41,7 @@ function generateStartHtml() {
   <section class='center-container'>
     <div class='container'>
       <p>Test your knowledge of nursing-level pharmacology</p>
-      <button>Start Quiz</button>
+      <button type='button' id='js-start-quiz'>Start Quiz</button>
     </div>
   </section>
   `
@@ -73,7 +73,7 @@ function renderQuiz() {
   if (store.quizStarted === false) {
     $('main').html(generateStartHtml());
     return;
-  } else if (store.questionsNumber <= store.questions.length) {
+  } else if (store.questionNumber <= store.questions.length) {
     $('main').html(generateQuestionsHtml());
     return;
   } else {
@@ -87,7 +87,11 @@ function renderQuiz() {
 // These functions handle events (submit, click, etc)
 
 function handleStartQuizClick() {
-  console.log('handleStartQuizClick ran');
+  $('main').on('click', '#js-start-quiz', function() {
+    console.log('handleStartQuizClick ran');
+    store.quizStarted = true;
+    renderQuiz();
+  })
 }
 
 function handleSubmitQuestionClick() {
