@@ -44,6 +44,7 @@ input[type='radio'] {
 .results {
   font-size: 18px;
   text-align: center;
+  line-height: 1.5;
 }
 
 /* Button Styling */
