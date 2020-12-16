@@ -81,7 +81,7 @@ function generateQuestionsHtml() {
   console.log('generateQuestionHtml ran');
   return `
   <section class='container'>
-    <p class='js-question-counter'>Question ${store.questionNumber}/5</p>
+    <p class='js-question-counter counter'>Question ${store.questionNumber}/5</p>
     <form id='js-question-form'>
       <fieldset class='standout'>
         <div class='question-head'>
@@ -89,19 +89,19 @@ function generateQuestionsHtml() {
         </div>
         <div>
           <div class='questions'> 
-            <input type='radio' name='answers' id='answer-1' value='${store.questions[store.questionNumber].answers[0]}' required></input>
+            <input type='radio' name='answers' id='answer-1' value='${store.questions[store.questionNumber].answers[0]}' required tabindex='0'></input>
             <label for='answer-1'>${store.questions[store.questionNumber].answers[0]}</label>
           </div>
           <div class='questions'> 
-            <input type='radio' name='answers' id='answer-1' value='${store.questions[store.questionNumber].answers[1]}' required></input>
+            <input type='radio' name='answers' id='answer-1' value='${store.questions[store.questionNumber].answers[1]}' required tabindex='0'></input>
             <label for='answer-1'>${store.questions[store.questionNumber].answers[1]}</label>
           </div>
           <div class='questions'> 
-            <input type='radio' name='answers' id='answer-1' value='${store.questions[store.questionNumber].answers[2]}' required></input>
+            <input type='radio' name='answers' id='answer-1' value='${store.questions[store.questionNumber].answers[2]}' required tabindex='0'></input>
             <label for='answer-1'>${store.questions[store.questionNumber].answers[2]}</label>
           </div>
           <div class='questions'> 
-            <input type='radio' name='answers' id='answer-1' value='${store.questions[store.questionNumber].answers[3]}' required></input>
+            <input type='radio' name='answers' id='answer-1' value='${store.questions[store.questionNumber].answers[3]}' required tabindex='0'></input>
             <label for='answer-1'>${store.questions[store.questionNumber].answers[3]}</label>
           </div>
         </div>
@@ -109,8 +109,8 @@ function generateQuestionsHtml() {
         <button type='button' id='js-next-btn' style='display: none;'>Next</button>
       </fieldset>
     </form>
-    <p class='js-score-counter'>Score ${store.score}/5</p>
-    <p class='results'></p>
+    <p class='js-score-counter counter'>Score ${store.score}/5</p>
+    <p class='js-results results'></p>
   </section>
   `
 }
@@ -172,9 +172,10 @@ function handleSubmitQuestionClick() {
 
     if (userAnswer === store.questions[store.questionNumber].correctAnswer) {
       store.score++;
-      $('.results').html( $("input:checked").val() + " is correct!");
+      $('.js-results').html( $("input:checked").val() + " is correct!");
+
     } else {
-      $('.results').html( $("input:checked").val() + ` is incorrect. The correct answer is: ${store.questions[store.questionNumber].correctAnswer}.`);
+      $('.js-results').html( $("input:checked").val() + ` is incorrect. The correct answer is: ${store.questions[store.questionNumber].correctAnswer}.`);
     }
     store.questionNumber++;
   })
