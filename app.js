@@ -81,7 +81,7 @@ function generateQuestionsHtml() {
   console.log('generateQuestionHtml ran');
   return `
   <section class='container'>
-    <p class='js-question-counter counter'>Question ${store.questionNumber}/5</p>
+    <p class='js-question-counter counter'>Question ${store.questionNumber + 1}/5</p>
     <form id='js-question-form'>
       <fieldset class='standout'>
         <div class='question-head'>
