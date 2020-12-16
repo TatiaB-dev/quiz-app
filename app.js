@@ -68,8 +68,8 @@ const store = {
 function generateStartHtml() {
   console.log('generateStartHtml ran');
   return `
-  <section class='center-container'>
-    <div class='container'>
+  <section class='container'>
+    <div>
       <p>Test your knowledge of nursing-level pharmacology</p>
       <button type='button' id='js-start-quiz'>Start Quiz</button>
     </div>
@@ -80,14 +80,14 @@ function generateStartHtml() {
 function generateQuestionsHtml() {
   console.log('generateQuestionHtml ran');
   return `
-  <section>
+  <section class='container'>
     <p class='js-question-counter'>Question ${store.questionNumber}/5</p>
     <form id='js-question-form'>
       <fieldset>
-        <div class='question'>
+        <div>
           <legend>${store.questions[store.questionNumber].question}</legend>
         </div>
-        <div class='answers'>
+        <div>
           <div> 
             <input type='radio' name='answers' id='answer-1' value='${store.questions[store.questionNumber].answers[0]}'</input>
             <label for='answer-1'>${store.questions[store.questionNumber].answers[0]}</label>
@@ -118,8 +118,8 @@ function generateQuestionsHtml() {
 function generateFinalScreenHtml() {
   console.log('generateFinalScreenHtml ran');
   return `
-  <section class='center-container'>
-    <div class='container'>
+  <section class='container'>
+    <div>
       <p>You finished the quiz! Here is your final score: </p>
       <p> Score: ${store.score}/5</p>
       <button type='button' id='js-restart-btn'>Restart Quiz</button>

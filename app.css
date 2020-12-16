@@ -1,28 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&family=Montserrat&display=swap');
+
+/* General Styling */
+
+body {
+  
+}
+
 header h1 {
   text-align: center;
+  font-family: 'Crimson Text', serif;
+  font-size: 48px;
+  color: #A5D3F0;
 }
 
-.center-container {
-  display: flex;
+p, button, legend, label  {
+  font-family: 'Montserrat', sans-serif;
 }
+
+fieldset {
+  padding: 20px;
+}
+
+/* Mobile First */
 
 .container {
-  margin: 0 auto;
   display: flex;
-  flex-direction: column;    
-  border: 1px solid black;
-  padding: 15px;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 15px;
 }
 
-.container button {
-  width: max-content;
-}
-
-section p {
-  text-align: center;
-}
-
-section form {
-  width: max-content;
-  margin: 0 auto;
-}
