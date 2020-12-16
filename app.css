@@ -3,30 +3,63 @@
 /* General Styling */
 
 body {
-  
+  background-color: #474A48;
 }
 
 header h1 {
   text-align: center;
   font-family: 'Crimson Text', serif;
   font-size: 48px;
-  color: #A5D3F0;
+  color: #C1C9C5;
 }
 
-p, button, legend, label  {
+p, button, .question-head, label  {
   font-family: 'Montserrat', sans-serif;
 }
 
-fieldset {
-  padding: 20px;
+p {
+  color: #000;
+  padding: 0 10px;
 }
 
-/* Mobile First */
+.question-head {
+  padding: 10px;
+  font-size: 18px;
+}
+
+.questions {
+  padding: 3px 10px;
+}
+
+.standout {
+  padding: 0;
+  background-color: #C1C9C5;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border-radius: 5px;
+}
+
+/* Button Styling */
+
+button {
+  margin: 10px;
+  color: #FFF;
+  border: 0;
+	padding: 7px;
+	border-radius: 6px;
+	width: max-content;
+	background-image: linear-gradient(45deg, #8BD2AF, #314A3D);
+}
+
+/* Mobile First Positioning*/
 
 .container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 15px;
+  padding: 20px 15px;
 }
+
+/* Desktop */
+
 

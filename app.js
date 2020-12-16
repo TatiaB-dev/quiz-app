@@ -69,7 +69,7 @@ function generateStartHtml() {
   console.log('generateStartHtml ran');
   return `
   <section class='container'>
-    <div>
+    <div class='standout'>
       <p>Test your knowledge of nursing-level pharmacology</p>
       <button type='button' id='js-start-quiz'>Start Quiz</button>
     </div>
@@ -83,25 +83,25 @@ function generateQuestionsHtml() {
   <section class='container'>
     <p class='js-question-counter'>Question ${store.questionNumber}/5</p>
     <form id='js-question-form'>
-      <fieldset>
-        <div>
+      <fieldset class='standout'>
+        <div class='question-head'>
           <legend>${store.questions[store.questionNumber].question}</legend>
         </div>
         <div>
-          <div> 
-            <input type='radio' name='answers' id='answer-1' value='${store.questions[store.questionNumber].answers[0]}'</input>
+          <div class='questions'> 
+            <input type='radio' name='answers' id='answer-1' value='${store.questions[store.questionNumber].answers[0]}' required></input>
             <label for='answer-1'>${store.questions[store.questionNumber].answers[0]}</label>
           </div>
-          <div> 
-            <input type='radio' name='answers' id='answer-1' value='${store.questions[store.questionNumber].answers[1]}'</input>
+          <div class='questions'> 
+            <input type='radio' name='answers' id='answer-1' value='${store.questions[store.questionNumber].answers[1]}' required></input>
             <label for='answer-1'>${store.questions[store.questionNumber].answers[1]}</label>
           </div>
-          <div> 
-            <input type='radio' name='answers' id='answer-1' value='${store.questions[store.questionNumber].answers[2]}'</input>
+          <div class='questions'> 
+            <input type='radio' name='answers' id='answer-1' value='${store.questions[store.questionNumber].answers[2]}' required></input>
             <label for='answer-1'>${store.questions[store.questionNumber].answers[2]}</label>
           </div>
-          <div> 
-            <input type='radio' name='answers' id='answer-1' value='${store.questions[store.questionNumber].answers[3]}'</input>
+          <div class='questions'> 
+            <input type='radio' name='answers' id='answer-1' value='${store.questions[store.questionNumber].answers[3]}' required></input>
             <label for='answer-1'>${store.questions[store.questionNumber].answers[3]}</label>
           </div>
         </div>
@@ -119,7 +119,7 @@ function generateFinalScreenHtml() {
   console.log('generateFinalScreenHtml ran');
   return `
   <section class='container'>
-    <div>
+    <div class='standout'>
       <p>You finished the quiz! Here is your final score: </p>
       <p> Score: ${store.score}/5</p>
       <button type='button' id='js-restart-btn'>Restart Quiz</button>
